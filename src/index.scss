@@ -1,7 +1,6 @@
 @import "carbon-components/scss/globals/scss/styles.scss";
-@import "./variables.scss";
 body {
-    background: $bg-color;
+    background: linear-gradient(90deg, rgba(224, 229, 255, 1) 0%, rgba(165, 227, 252, 1) 100%);
 }
 
 .bold {

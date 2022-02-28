@@ -1,5 +1,7 @@
 import "./Header.scss";
+
 const Header = () => {
+
     return (
         <header>
             <h3>Foreca Weather Search</h3>

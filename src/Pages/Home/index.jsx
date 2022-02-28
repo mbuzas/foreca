@@ -7,11 +7,10 @@ import { Search } from "carbon-components-react";
 import WeatherContext from "../../Context";
 
 const Home = () => {
-    const { searchQuery, setSearchQuery } = useContext(WeatherContext);
+    const { searchQuery, setSearchQuery, dbUrl } = useContext(WeatherContext);
     const [searchInput, setSearchInput] = useState("");
     const [alertMessage, setAlertMessage] = useState("");
     const [locations, setLocations] = useState([]);
-
 
     const handleOnChange = (e) => {
         const regex = /^[a-zA-Z\s]*$/;
@@ -24,22 +23,25 @@ const Home = () => {
             setAlertMessage("");
         }
     };
-
     const handleSubmit = (e) => {
         if (e.keyCode === 13 && !alertMessage) {
             setSearchQuery(e.target.value);
         }
     };
-
-    const sendSearchKeywordLog = async (searchQuery) => {
-        await axios.post("http://localhost:5000/", { searchQuery: searchQuery })
+    const sendSearchKeywordLog = (searchQuery) => {
+        searchQuery && axios.post(dbUrl, { searchQuery: searchQuery })
+            .catch(function (error) {
+                console.log(error);
+            });
+        searchQuery && axios.post(dbUrl + "/searchkeywords", { "searchQuery": searchQuery })
+            .then(function (response) {
+                console.log(response.data);
+            })
             .catch(function (error) {
                 console.log(error);
             });
     };
-
-
-    useEffect(() => {
+    const getLocations = () => {
         const options = {
             method: "GET",
             url: `https://foreca-weather.p.rapidapi.com/location/search/${searchQuery}`,
@@ -49,26 +51,24 @@ const Home = () => {
                 "x-rapidapi-key": "0b20c24bc4msh993b29196ffed96p1b64a2jsn2c6a007d9566"
             }
         };
-
         axios.request(options).then(function (response) {
             setLocations(response.data.locations);
         }).catch(function (error) {
             console.error(error);
         });
+    };
+    useEffect(() => {
+        getLocations();
         sendSearchKeywordLog(searchQuery);
-
-
     }, [searchQuery]);
 
     return (
         <Layout>
-
             <Search className="search-input" labelText="search" onKeyDown={handleSubmit} placeholder="Enter location..." value={searchInput} onChange={handleOnChange} />
             <div className="alert">{alertMessage}</div>
             {locations.slice(0, 5).map((location) => {
                 return <ResultItem key={location.id} location={location} />;
             })}
-
         </Layout>
     );
 };

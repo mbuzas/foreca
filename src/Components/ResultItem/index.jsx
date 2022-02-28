@@ -4,6 +4,7 @@ import "./ResultItem.scss";
 import { Location32 } from "@carbon/icons-react";
 import { Link } from "react-router-dom";
 import WeatherContext from "../../Context";
+
 const ResultItem = ({ location }) => {
     const { setSelectedLocation, setLocationName } = useContext(WeatherContext);
     const handleOnClick = () => {
@@ -11,10 +12,7 @@ const ResultItem = ({ location }) => {
         setLocationName(location.name);
     };
 
-
-
     return (
-
         <article className="result-item">
             <Row condensed>
                 <Column>
@@ -22,7 +20,6 @@ const ResultItem = ({ location }) => {
                 </Column>
                 <Column>
                     <span className="bold"> {location.name}</span>
-
                 </Column>
                 <Column>
                     {location.country}

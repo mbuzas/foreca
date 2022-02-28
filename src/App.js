@@ -1,5 +1,3 @@
-import "./App.scss";
-
 import {
   Routes,
   Route,
@@ -10,17 +8,26 @@ import Home from "./Pages/Home";
 import Location from "./Pages/Location";
 import WeatherContext from "./Context";
 import { useState } from "react";
+
 function App() {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [locationName, setLocationName] = useState([]);
+  const dbUrl = "http://localhost:5000";
+
+  const getRandom = () => {
+    return Math.floor(Math.random() * 1000000);
+  };
+
   const initialState = {
     selectedLocation: selectedLocation,
     setSelectedLocation,
     searchQuery: searchQuery,
     setSearchQuery,
     locationName: locationName,
-    setLocationName
+    setLocationName,
+    dbUrl,
+    getRandom
   };
 
   return (
