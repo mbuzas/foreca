@@ -1,0 +1,106 @@
+// @import "../../variables.scss";
+.block-mb {
+    background: rgb(63, 94, 251);
+    background: linear-gradient(90deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+    display: flex;
+    border-radius: 8px;
+    color: #fff;
+    margin-bottom: 1em;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 2em;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    .content {
+        width: auto;
+        flex-wrap: wrap;
+        display: flex;
+        gap: 1em;
+        flex-direction: row;
+        p {
+            padding: 1em;
+        }
+        img {
+            height: 64px;
+            width: auto;
+        }
+    }
+}
+.get-back {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease-in;
+    border: 1px rgba(63, 94, 251, 1) solid;
+    border-radius: 8px;
+    width: fit-content;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+.get-back:hover {
+    color: rgba(252, 70, 107, 1);
+    transition: all 0.3s ease-in;
+    border: 1px rgba(252, 70, 107, 1) solid;
+}
+.daily-wrapper {
+    padding: 0em;
+    .daily-grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        // justify-content: stretch;
+        align-items: center;
+
+        gap: 1em;
+        // width: 100%;
+        .block-mb {
+            // min-width: 48%;
+            // flex: 2 2;
+            // width: 49%;
+            // width: 49%;
+            width: auto;
+            margin: auto;
+            margin-bottom: 0em;
+            // margin-righ;
+        }
+    }
+}
+
+.title {
+    align-self: center;
+}
+
+@media (max-width: 576px) {
+    .block-mb {
+        text-align: center;
+        padding: 0.5em;
+
+        .content {
+            flex-direction: column-reverse;
+
+            img {
+                align-self: center;
+            }
+            p {
+                padding: 0.25em;
+            }
+        }
+    }
+
+    .get-back {
+        align-self: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .daily-grid {
+        .block-mb {
+            width: 100%;
+        }
+    }
+}

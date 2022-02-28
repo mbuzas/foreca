@@ -1,0 +1,33 @@
+.result-item {
+    padding: 3em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    background: rgb(63, 94, 251);
+    background: linear-gradient(90deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+    border-radius: 8px;
+    color: #fff;
+    border: 1px solid #fff;
+    button {
+        background-color: rgba(63, 94, 251, 1);
+        border-radius: 8px;
+    }
+    .bx--row {
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    button {
+        padding: 4px 8px !important;
+    }
+}
+@media (max-width: 768px) {
+    .result-item {
+        .bx--row {
+            text-align: center;
+            gap: 0.5em;
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+}

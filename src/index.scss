@@ -1,0 +1,9 @@
+@import "carbon-components/scss/globals/scss/styles.scss";
+@import "./variables.scss";
+body {
+    background: $bg-color;
+}
+
+.bold {
+    font-weight: 700;
+}
