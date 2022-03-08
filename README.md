@@ -1,6 +1,6 @@
 ## Welcome To Foreca Weather Forecast by Mantvydas
 
-The project is made according to JS application developer internship task. Main purpose is to retrieve data from Foreca Weather API and visualize it using React. 
+The project is made according to **JS application developer internship task**. Main purpose is to retrieve data from Foreca Weather API and visualize it using React. 
 https://rapidapi.com/foreca-ltd-foreca-ltd-default/api/foreca-weather/
 To start the project successfully you need to start both backend and frontend.
 
